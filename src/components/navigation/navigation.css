@@ -1,0 +1,164 @@
+.navigation__menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__movies {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto 21px auto 0;
+  text-decoration: none;
+}
+
+.navigation__movies:hover {
+  opacity: 0.8;
+}
+
+.navigation__movies.active {
+  font-weight: 500;
+}
+
+.navigation__profile-link {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto 15px auto 0px;
+  text-decoration: none;
+}
+
+.navigation__profile-logo {
+  background-color: rgba(15, 65, 87, 1);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-self: center;
+}
+
+.navigation__profile-logoImg {
+  width: 10.38px;
+  height: 10.67px;
+  margin: auto;
+}
+
+.navigation__profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__savedMovies {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto 50px auto 0px;
+  text-decoration: none;
+}
+
+.navigation__img {
+  width: 40px;
+  height: 43px;
+  align-self: end;
+  display: none;
+}
+
+.navigation__img-close {
+  width: 32px;
+  height: 32px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__menu {
+    position: fixed;
+    top: 0;
+    right: -520px;
+    flex-direction: column;
+    width: 520px;
+    height: 100%;
+    transition: transform 0.3s linear;
+    background-color: rgba(32, 32, 32, 1);
+    z-index: 1;
+  }
+
+  .navigation__menu.active {
+    transform: translateX(-100%);
+  }  
+  
+  .navigation__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation__container {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .navigation__img {
+    display: block;
+    margin-left: auto;
+    background-color: transparent;
+  }
+
+  .navigation__img-close {
+    display: block;
+    margin-left: auto;
+    background-color: transparent;
+    padding: 22px 22px 0px 0;
+    margin-bottom: 105px;
+  }
+
+  .navigation__movies {
+    margin-bottom: 28px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: auto 0px 25px 0px;
+    padding-bottom: 4px;
+  }
+
+  .navigation__profile{
+    justify-content: center;
+    margin-bottom: 254px;
+  }
+
+  .navigation__movies.active {
+    border-bottom: 1px solid white;
+  }
+
+  .navigation__profile-logo {
+    background-color: rgba(49, 49, 49, 1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__menu {
+    right: -320px;
+    width: 320px;
+    height: 100%;
+  }
+}
