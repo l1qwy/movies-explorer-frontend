@@ -9,13 +9,15 @@ export default function Login({
 }) {
   return (
     <section className="login page__container" name="login">
-      <Form
-        name="login"
-        title={title}
-        textButton={textButton}
-        labelEmail={labelEmail}
-        labelPassword={labelPassword}
-      />
+      <main>
+        <Form
+          name="login"
+          title={title}
+          textButton={textButton}
+          labelEmail={labelEmail}
+          labelPassword={labelPassword}
+        />
+      </main>
     </section>
   );
 }

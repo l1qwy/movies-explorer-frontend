@@ -4,7 +4,6 @@
   padding-top: 75px;
   padding-bottom: 75px;
   justify-content: space-between;
-  height: 100%;
 }
 
 .promo__img {
@@ -32,6 +31,7 @@
 }
 
 .promo__tip {
+  max-width: 300px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -40,6 +40,7 @@
   text-align: left;
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0 146px;
+
 }
 
 .promo__title {
@@ -73,15 +74,17 @@
   .promo__tip {
     text-align: center;
     margin: 0 0 90px;
+    max-width: 245px;
   }
 
   .promo__textContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .promo__learnMore {
-    margin: 0 auto 76px;
+    margin: 0;
   }
 }
 
@@ -100,6 +103,8 @@
   .promo {
     padding-top: 70px;
     padding-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   .promo__tip {

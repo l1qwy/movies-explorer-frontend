@@ -10,14 +10,16 @@ export default function Register({
 }) {
   return (
     <section className="register page__container" name="register">
-      <Form
-        name="register"
-        title={title}
-        textButton={textButton}
-        labelName={labelName}
-        labelEmail={labelEmail}
-        labelPassword={labelPassword}
-      />
+      <main>
+        <Form
+          name="register"
+          title={title}
+          textButton={textButton}
+          labelName={labelName}
+          labelEmail={labelEmail}
+          labelPassword={labelPassword}
+        />
+      </main>
     </section>
   );
 }

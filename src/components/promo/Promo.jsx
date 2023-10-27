@@ -11,13 +11,10 @@ export default function Promo() {
     <section className="promo page__container">
       <div className="promo__textContainer">
         <h1 className="promo__title">
-          Учебный проект студента
-          <nobr />
-          факультета Веб-разработки.
+          Учебный&nbsp;проект студента факультета Веб&zwj;-&zwj;разработки.
         </h1>
         <p className="promo__tip">
-          Листайте ниже, чтобы узнать больше
-          <br /> про этот проект и его создателя.
+          Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
         <button
           className="promo__learnMore"

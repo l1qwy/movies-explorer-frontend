@@ -1,0 +1,36 @@
+.header-auth{
+  background-color: rgba(7, 48, 66, 1);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-auth__loginBtn {
+  background-color: rgba(61, 220, 132, 1);
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  border: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0px;
+  text-align: center;
+  color: black;
+}
+
+@media screen and (max-width: 769px) {
+  .header-auth {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+  .header-auth__nav-link {
+    font-size: 12px;
+    padding: 10px 10px 0px;
+  }
+}
+
+

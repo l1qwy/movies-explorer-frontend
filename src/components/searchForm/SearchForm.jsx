@@ -3,7 +3,7 @@ import "./searchForm.css";
 export default function SearchForm({ isChecked, handleSwitchChange }) {
 
   return (
-    <form className="searchForm page__container" onSubmit={(event) => {event.preventDefault()}}>
+    <form className="searchForm page__container" name="searchForm" onSubmit={(event) => {event.preventDefault()}}>
       <div className="searchForm__container">
         <input
           className="searchForm__container-input"

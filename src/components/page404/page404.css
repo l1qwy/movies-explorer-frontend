@@ -46,3 +46,19 @@
     padding-top: 422px;  }
 }
 
+@media screen and (max-width: 321px ) {
+  .page404__title {
+    font-size: 80px;
+    padding-top: 337px;
+  }
+
+  .page404__message {
+    font-size: 12px;
+  }
+
+  .page404__link {
+    font-size: 12px;
+    padding-top: 288px;
+  }
+}
+

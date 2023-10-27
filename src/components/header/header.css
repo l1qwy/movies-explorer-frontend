@@ -22,7 +22,17 @@
   width: 38px;
 }
 
-.header__logo_auth {
+.header__btn {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+.header__logo_type_auth {
   margin-top: 70px;
 }
 
@@ -32,18 +42,18 @@
     padding-right: 30px;
   }
 
-  .header__logo_auth {
+  .header__logo_type_auth {
     margin-top: 230px;
   }
 }
 
 @media screen and (max-width: 321px) {
   .header {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 28px;
+    padding-right: 0px;
   }
 
-  .header__logo_auth {
+  .header__logo_type_auth {
     margin-top: 60px;
   }
 }

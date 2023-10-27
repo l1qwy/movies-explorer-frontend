@@ -9,8 +9,8 @@ import { useState } from "react";
 export default function SavedMovies({ cards }) {
   const [cardLimit, setCardLimit] = useState(12);
   const visibleCards = cards.slice(0, cardLimit);
-  const [isChecked, setIsChecked] = useState(false);
 
+  const [isChecked, setIsChecked] = useState(false);
   const handleSwitchChange = () => {
     setIsChecked(!isChecked);
   };
@@ -32,6 +32,7 @@ export default function SavedMovies({ cards }) {
         visibleCards={visibleCards}
         filteredFilms={filteredFilms}
         isChecked={isChecked}
+        name="savedMovies"
       />
       <MoreCards
         cards={cards}

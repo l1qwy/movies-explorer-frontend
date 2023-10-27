@@ -23,6 +23,11 @@ export default function App() {
           console.error("Ошибка при формировании страницы " + error)
         );
   }, []);
+  
+
+  function handleLogin (name, email, event) {
+    event.preventDefault()
+  }
 
   return (
       <div className="app">
@@ -35,7 +40,7 @@ export default function App() {
             element={
               <Register
                 title="Добро пожаловать!"
-                textButton="Регистрация"
+                textButton="Зарегистрироваться"
                 labelName="Имя"
                 labelEmail="E-mail"
                 labelPassword="Пароль"
@@ -56,7 +61,7 @@ export default function App() {
           <Route
             path="/profile"
             element={
-              <Profile />
+              <Profile onLogin={handleLogin}/>
             }
           />
           <Route path="*" element={<Page404 />} />

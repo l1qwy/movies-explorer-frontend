@@ -13,7 +13,7 @@
   flex-direction: row;
 }
 
-.navigation__movies {
+.navigation__items {
   font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -21,15 +21,19 @@
   letter-spacing: 0em;
   text-align: right;
   color: white;
-  margin: auto 21px auto 0;
+  margin: auto;
   text-decoration: none;
 }
 
-.navigation__movies:hover {
+.navigation__items:first-of-type {
+  margin-right: 20px;
+}
+
+.navigation__items:hover, .navigation__profile-link:hover, .navigation__profile-logo:hover {
   opacity: 0.8;
 }
 
-.navigation__movies.active {
+.navigation__items.active {
   font-weight: 500;
 }
 
@@ -63,6 +67,7 @@
 .navigation__profile {
   display: flex;
   flex-direction: row;
+  margin-left: 50px;
 }
 
 .navigation__savedMovies {
@@ -81,16 +86,22 @@
   width: 40px;
   height: 43px;
   align-self: end;
-  display: none;
 }
 
-.navigation__img-close {
+.navigation__btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navigation__img_close {
   width: 32px;
   height: 32px;
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .navigation__menu {
     position: fixed;
     top: 0;
@@ -101,6 +112,7 @@
     transition: transform 0.3s linear;
     background-color: rgba(32, 32, 32, 1);
     z-index: 1;
+    padding-top: 22px;
   }
 
   .navigation__menu.active {
@@ -116,15 +128,24 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+    padding: 100px 0px 22px 0px;
+  }
+
+  .navigation__btn {
+    display: block;
+    margin-left: auto;
   }
 
   .navigation__img {
-    display: block;
-    margin-left: auto;
-    background-color: transparent;
+    width: 45px;
+    height: 70px;
   }
 
-  .navigation__img-close {
+  .navigation__btn_close  {
+    margin-right: 21px;
+  }
+
+  .navigation__img_close {
     display: block;
     margin-left: auto;
     background-color: transparent;
@@ -132,7 +153,7 @@
     margin-bottom: 105px;
   }
 
-  .navigation__movies {
+  .navigation__items {
     margin-bottom: 28px;
     font-size: 18px;
     font-weight: 500;
@@ -141,12 +162,20 @@
     padding-bottom: 4px;
   }
 
+  .navigation__items-slide:first-of-type {
+    margin-right: 0;
+  }
+
+  .navigation__profile-slide {
+    margin: auto;
+  }
+
   .navigation__profile{
     justify-content: center;
     margin-bottom: 254px;
   }
 
-  .navigation__movies.active {
+  .navigation__items.active {
     border-bottom: 1px solid white;
   }
 
@@ -155,10 +184,29 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 321px) {
   .navigation__menu {
     right: -320px;
     width: 320px;
     height: 100%;
+    padding-top: 15px;
+  }
+
+  .navigation__btn_close {
+    margin-right: 13px;
+    margin-top: 0px;
+  }
+
+  .navigation__container {
+    padding: 94px 0px 22px 0px;
+  }
+
+  .navigation__items {
+    margin: auto 0px 20px 0px;
+  }
+
+  .navigation__profile {
+    justify-content: center;
+    margin-bottom: 448px;
   }
 }
