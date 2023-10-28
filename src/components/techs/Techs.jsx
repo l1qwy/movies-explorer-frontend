@@ -11,25 +11,25 @@ export default function Techs() {
       </p>
       <ul className="techs__schema">
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>HTML
+          <p className="techs__schema-block-title">HTML</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>CSS
+          <p className="techs__schema-block-title">CSS</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>JS
+          <p className="techs__schema-block-title">JS</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>React
+          <p className="techs__schema-block-title">React</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>Git
+          <p className="techs__schema-block-title">Git</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>Express.js
+          <p className="techs__schema-block-title">Express.js</p>
         </li>
         <li className="techs__schema-block">
-          <p className="techs__schema-block-title"></p>mongoDB
+          <p className="techs__schema-block-title">mongoDB</p>
         </li>
       </ul>
     </div>

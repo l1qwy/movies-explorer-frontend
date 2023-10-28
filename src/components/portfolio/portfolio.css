@@ -1,5 +1,6 @@
 .portfolio {
   margin: 92px 0 0;
+  padding-bottom: 105px;
 }
 
 .portfolio__link {
@@ -70,6 +71,7 @@
 
   .portfolio {
     margin: 64px 0 0;
+    padding-bottom: 0px;
   }
 
   .portfolio__container {
@@ -85,7 +87,8 @@
   }
 
   .portfolio__link-img {
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
+    padding: 3px;
 }
 }

@@ -7,18 +7,21 @@ import { useEffect, useState } from "react";
 import "./movies.css"
 
 export default function Movies({ cards }) {
-  const [cardLimit, setCardLimit] = useState(0);
+
+  const [cardLimit, setCardLimit] = useState(6);
   const visibleCards = cards.slice(0, cardLimit);
 
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth <= 767) {
+      if (screenWidth <= 320) {
         setCardLimit(5); 
-      } else if (screenWidth <= 1023) {
+      } else if (screenWidth <= 768) {
         setCardLimit(8); 
+      } else if (screenWidth <= 1024) {
+        setCardLimit(12); 
       } else {
-        setCardLimit(12);
+        setCardLimit(16);
       }
     };
 

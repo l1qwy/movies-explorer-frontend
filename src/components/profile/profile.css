@@ -89,34 +89,45 @@
   padding-top: 100px;
 }
 
-.profile__submit_logout {
+.profile__submit {
+  width: 100%;
+  height: 45px;
+  border-radius: 3px;
+  background-color: rgba(66, 133, 244, 1);
+  border: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  margin-top: 152px;
+}
+.profile__submit_theme_outline-red {
   margin-top: 9px;
   background-color: transparent;
   border: none;
   font-family: "Inter", Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: 0px;
-  text-align: center;
-  color: rgba(238, 52, 101, 1);
-}
-
-.profile__submit_update {
-  margin-top: 35px;
-}
-
-.profile__submit_edit {
-  background-color: transparent;
-  border: none;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0px;
   text-align: center;
+  color: rgba(238, 52, 101, 1);
+  height: 20px;
+}
+
+.profile__submit_theme_outline-white {
+  background-color: transparent;
+  border: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0px;
+  text-align: center;
   color: white;
-  padding-top: 30px;
 }
 
 .profile__title {
@@ -131,7 +142,7 @@
   color: white;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .profile__title {
     padding-top: 216px;
   }
@@ -142,24 +153,64 @@
   }
 
   .profile__submit {
-    margin-top: 190px;
-  }
-
-  .profile__submit_update {
-    margin-top: 45px;
+    margin-top: 20px;
   }
 
   .profile__form {
-    padding-top: 12px;
+    padding-top: 13px;
   }
 
   .profile__field-label:first-of-type {
     top: 65px
   }
+
+  .profile__nav {
+    padding-top: 133px;
+}
+  
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 320px) {
   .profile__field-container {
     width: 260px;
+    padding-top: 0px;
+  }
+
+  .profile__title {
+    padding-top: 50px;
+  }
+
+  .profile__field-label:first-of-type {
+    top: 3px;
+  }
+
+  .profile__form {
+    padding-top: 56px;
+  }
+
+  .profile__field-label {
+    bottom: 40px;
+  }
+
+  .profile__submit {
+    margin-top: 0;
+  }
+
+  .profile__nav {
+    padding-top: 290px;
+  }
+
+  .profile__submit_theme_outline-red {
+    height: 20px;
+  }
+
+  .profile__submit {
+    width: 260px;
+    height: 45px;
+    margin-top: 20px;
+  }
+
+  .profile__submit_theme_outline-red {
+    height: 20px;
   }
 }

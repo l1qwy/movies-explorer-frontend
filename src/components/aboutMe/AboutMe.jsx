@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import "./aboutMe.css"
 import aboutMeImg from "../../images/aboutMeImg.png"
 import Portfolio from "../portfolio/Portfolio"

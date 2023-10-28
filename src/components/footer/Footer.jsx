@@ -3,7 +3,7 @@ import "./footer.css";
 export default function Footer() {
   return (
     <footer className="footer page__container">
-      <h1 className="footer__production">
+      <h1 className="footer__production footer__prodaction__type__mobile">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h1>
       <div className="footer__copyring">

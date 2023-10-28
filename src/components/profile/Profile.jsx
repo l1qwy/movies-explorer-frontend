@@ -24,9 +24,9 @@ export default function Profile() {
       <Header />
       <main>
         <h1 className="profile__title">Привет, Виталий!</h1>
-        <form className="profile__form" name="profileForm" noValidate onSubmit={handleSubmit}>
+        <form className="profile__form" name="profile-form" noValidate onSubmit={handleSubmit}>
           <fieldset className="profile__field-container">
-            <label className="profile__field-label">Имя</label>
+            <span className="profile__field-label">Имя</span>
             <input
               className={`profile__field ${isInputValid.nameProfile === undefined || isInputValid.nameProfile ? "" : "form__error"}`}
               name="nameProfile"
@@ -39,9 +39,7 @@ export default function Profile() {
             <div className={`profile__field-error ${isInputValid.nameProfile ? "" : "form__field_error"}`}>
               <span id="name-error" >{errorMessage.nameProfile}</span>
             </div>
-          {/* </fieldset> */}
-          {/* <div className="profile__field-container"> */}
-            <label className="profile__field-label">E-mail</label>
+            <span className="profile__field-label">E-mail</span>
             <input
               className={`profile__field ${isInputValid.emailProfile === undefined || isInputValid.emailProfile ? "" : "form__error"}`}
               name="emailProfile"
@@ -55,20 +53,21 @@ export default function Profile() {
             </div>
           </fieldset>
           <nav className="profile__nav">
-            <p className="profile__error-upd">{errorUpdatePrifile}</p>
+
             {isClicked ? (
-              <button className={`profile__submit_update form__submit ${isValid ? "" : "submit_disabled"}`} aria-label="editProfile">Сохранить</button>
+              <><p className="profile__error-upd">{errorUpdatePrifile}</p>
+              <button className={`profile__submit ${isValid ? "" : "submit_disabled"}`} aria-label="edit-erofile" required >Сохранить</button></>
             ) : (
               <>
                 <button
-                  className="profile__submit_edit" 
+                  className="profile__submit profile__submit_theme_outline-white" 
                   type="submit"
                   onClick={handleClick}
                 >
                   Редактировать
                 </button>
                 <NavLink to="/signup">
-                  <button className="profile__submit_logout" type="submit">
+                  <button className="profile__submit profile__submit_theme_outline-red" type="submit">
                     Выйти из аккаунта
                   </button>
                 </NavLink>

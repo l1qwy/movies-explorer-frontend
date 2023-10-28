@@ -50,15 +50,11 @@
   letter-spacing: 0em;
   text-align: left;
   color: white;
-  padding: 16px 0 10px;
+  padding: 4px 0 6px;
 }
 
 .form__error_password {
   color: rgba(238, 52, 101, 1);
-}
-
-.form__field_type_register:first-of-type {
-  margin-top: 18px;
 }
 
 .form__field_type_register::placeholder {
@@ -81,7 +77,6 @@
 }
 
 .form__field-label {
-  position: absolute;
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-size: 10px;
@@ -158,7 +153,7 @@
 }
 
 .form__fields-container {
-  margin-top: 20px;
+  margin-top: 31px;
   position: relative;
 }
 
@@ -166,7 +161,7 @@
   margin-top: 195px;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .form__fields-container {
     margin-top: 17px;
   }
@@ -178,11 +173,12 @@
   .form__field_type_register:first-of-type {
     margin-top: 25px;
   }
+  
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 320px) {
   .form__field-container {
-    width: 260px;
+    margin-top: 77px;
    }
 
   .form {
@@ -205,15 +201,15 @@
   }
 
   .form__field_type_register {
-    padding: 0px 0 8px;
+    padding: 3px 0 6px;
   }
 
   .form__fields-container {
-    margin-top: 63px;
+    margin-top: 76px;
   }
 
   .form__field_type_register:first-of-type {
-    margin-top: 40px;
+    margin-top: 0px;
   }
 
   .form__field-label {
@@ -226,5 +222,9 @@
 
   .form__note_type_link {
     font-size: 12px;
+  }
+
+  .form__submit_type_register {
+    margin-top: 217px;
   }
 }

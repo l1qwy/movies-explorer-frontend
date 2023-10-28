@@ -7,7 +7,7 @@ import "./savedMovies.css"
 import { useState } from "react";
 
 export default function SavedMovies({ cards }) {
-  const [cardLimit, setCardLimit] = useState(12);
+  const [cardLimit, setCardLimit] = useState(2);
   const visibleCards = cards.slice(0, cardLimit);
 
   const [isChecked, setIsChecked] = useState(false);
@@ -20,7 +20,7 @@ export default function SavedMovies({ cards }) {
     : cards;
 
   return (
-    <section className="savedMovies">
+    <section className="saved-movies">
       <Header />
       <SearchForm
         isChecked={isChecked}
@@ -32,7 +32,7 @@ export default function SavedMovies({ cards }) {
         visibleCards={visibleCards}
         filteredFilms={filteredFilms}
         isChecked={isChecked}
-        name="savedMovies"
+        name="saved-movies"
       />
       <MoreCards
         cards={cards}

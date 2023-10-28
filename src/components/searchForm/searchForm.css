@@ -1,4 +1,4 @@
-.searchForm {
+.search-form {
   height: 242px;
   background-color: rgba(32, 32, 32, 1);
   border-bottom: 1px solid rgba(170, 170, 170, 0.2);
@@ -7,12 +7,12 @@
 
 }
 
-.searchForm__container {
+.search-form__container {
   position: relative;
   z-index: 0;
 }
 
-.searchForm__container-btn {
+.search-form__container-btn {
   position: absolute;
   width: 100px;
   height: 52px;
@@ -31,11 +31,11 @@
   right: 10px;
 }
 
-.searchForm__container-btn:hover {
+.search-form__container-btn:hover {
   opacity: 0.8;
 }
 
-.searchForm__container-input {
+.search-form__container-input {
   width: 98%;
   max-height: 72px;
   background-color: transparent;
@@ -52,7 +52,7 @@
   padding: 25px 0 25px 22px;
 }
 
-.searchForm__filter {
+.search-form__filter {
   position: relative;
   display: inline-block;
   width: 36px;
@@ -60,9 +60,9 @@
   margin: 26px 0 0;
 }
 
-.searchForm__filter input {display:none;}
+.search-form__filter input {display:none;}
 
-.searchForm__filter-label {
+.search-form__filter-label {
   margin: 0;
   position: absolute;
   left: 50px;
@@ -75,7 +75,7 @@
   color: white;
 }
 
-.searchForm__filter-slider {
+.search-form__filter-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -87,11 +87,11 @@
   border-radius: 20px;
 }
 
-.searchForm__filter-slider:hover {
+.search-form__filter-slider:hover {
   opacity: 0.8;
 }
 
-.searchForm__filter-slider:before {
+.search-form__filter-slider:before {
   position: absolute;
   content: "";
   height: 8px;
@@ -103,40 +103,40 @@
   border-radius: 50%;
 }
 
-input:checked + .searchForm__filter-slider {
+input:checked + .search-form__filter-slider {
   background-color: rgba(43, 224, 128, 1);
 }
 
-input:focus + .searchForm__filter-slider {
+input:focus + .search-form__filter-slider {
   box-shadow: 0 0 1px rgba(43, 224, 128, 1);
 }
 
-input:checked + .searchForm__filter-slider:before {
+input:checked + .search-form__filter-slider:before {
   transform: translateX(20px);
 }
 
 @media screen and (max-width: 769px) {
-  .searchForm__container-input {
+  .search-form__container-input {
     width: 96%;
   }
 
-  .searchForm {
+  .search-form {
     padding: 69px 31px 45px 30px;
   }
 }
 
 @media screen and (max-width: 321px) {
-  .searchForm {
+  .search-form {
     padding: 72px 10px 59px 14px;
   }
 
-  .searchForm__container-input {
+  .search-form__container-input {
     padding: 15px 0 14px 10px;
     font-size: 16px;
     width: 94%;
   }
 
-  .searchForm__container-btn {
+  .search-form__container-btn {
     width: 81px;
     height: 42px;
     font-size: 14px;
@@ -144,7 +144,7 @@ input:checked + .searchForm__filter-slider:before {
     right: 10px;
   }
 
-  .searchForm__filter {
+  .search-form__filter {
     margin: 32px 0 0;
   }
 }

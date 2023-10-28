@@ -23,7 +23,7 @@ export default function Form({
   }
 
   return (
-    <form className="form" name={name} noValidate onSubmit={handleSubmit}>
+    <form className="form" name={name} onSubmit={handleSubmit}>
       <Link to="/">
         <img
           className="header__logo header__logo_type_auth"
