@@ -8,7 +8,7 @@ export default function Login({
   labelPassword,
 }) {
   return (
-    <section className="login page__container" name="login">
+    <div className="login app__container">
       <main>
         <Form
           name="login"
@@ -18,6 +18,6 @@ export default function Login({
           labelPassword={labelPassword}
         />
       </main>
-    </section>
+    </div>
   );
 }

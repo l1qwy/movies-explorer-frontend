@@ -1,9 +1,9 @@
 .about-me {
   background-color: rgba(32, 32, 32, 1);
+  padding: 0px 70px 0px 70px;
 }
 
 .about-me__discription {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.55;
@@ -13,7 +13,6 @@
 }
 
 .about-me__git {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
@@ -25,10 +24,6 @@
 
 .about-me__git-link {
   text-decoration: none;
-}
-
-.about-me__git-link:hover {
-  opacity: 0.8;
 }
 
 .about-me__img {
@@ -46,7 +41,6 @@
 }
 
 .about-me__name {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 1.2;
@@ -61,7 +55,6 @@
 }
 
 .about-me__title {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.2;
@@ -74,7 +67,6 @@
 }
 
 .about-me__topic {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1;
@@ -84,7 +76,11 @@
   margin: 18px 0 0;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
+  .about-me {
+    padding: 0px 50px 0px 50px;
+  }
+
   .about-me__name {
     font-size: 40px;
     line-height: 1;
@@ -115,7 +111,7 @@
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 525px) {
   .about-me__info {
     display: flex;
     flex-direction: column-reverse;
@@ -124,7 +120,7 @@
   }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 375px) {
   .about-me {
     padding-right: 14px;
     padding-left: 14px;
@@ -138,7 +134,7 @@
 
   .about-me__title {
     font-size: 18px;
-    padding: 80px 0 25px;
+    padding: 90px 0 25px;
   }
 
   .about-me__discription {

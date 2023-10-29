@@ -1,5 +1,6 @@
 .more-cards {
-  background-color: rgba(32, 32, 32, 1)
+  background-color: rgba(32, 32, 32, 1);
+  padding: 63px 70px 78px;
 }
 
 .more-cards__btn {
@@ -8,7 +9,7 @@
   background-color: rgba(47, 47, 47, 1);
   border-radius: 6px;
   border: none;
-  margin: 60px auto 80px;
+  margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -18,28 +19,35 @@
   color: white;
 }
 
+.more-cards-noBtn {
+  padding: 63px 70px 170px;
+  background-color: rgba(32, 32, 32, 1);
+}
+
 .more-cards__btn:hover {
   opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {
-  .more-cards__btn {
-    margin: 80px auto 80px;
+  .more-cards {
+    padding: 80px 30px 100px 30px;
   }
 
-  .more-cards {
-    padding-left: 30px;
-    padding-right: 30px;
+  .more-cards-noBtn {
+    padding: 90px 30px 100px 30px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
+  .more-cards-noBtn {
+    padding: 125px 10px 0 10px;
+  }
+
   .more-cards__btn {
     margin: 79px auto 32px;
   }
 
   .more-cards {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px 0 10px;;
   }
 }

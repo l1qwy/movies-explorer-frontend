@@ -8,7 +8,7 @@ export default function Promo() {
   };
 
   return (
-    <section className="promo page__container">
+    <section className="promo">
       <div className="promo__text-container">
         <h1 className="promo__title">
           Учебный&nbsp;проект студента факультета Веб&zwj;-&zwj;разработки.

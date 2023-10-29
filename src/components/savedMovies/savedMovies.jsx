@@ -4,10 +4,32 @@ import MoviesCardList from "../moviesCardList/MoviesCardList";
 import Footer from "../footer/Footer";
 import MoreCards from "../moreCards/MoreCards";
 import "./savedMovies.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SavedMovies({ cards }) {
-  const [cardLimit, setCardLimit] = useState(2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 320) {
+        setCardLimit(2); 
+      } else if (screenWidth <= 768) {
+        setCardLimit(3); 
+      } else if (screenWidth <= 1024) {
+        setCardLimit(3); 
+      } else {
+        setCardLimit(3);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [cardLimit, setCardLimit] = useState(3);
   const visibleCards = cards.slice(0, cardLimit);
 
   const [isChecked, setIsChecked] = useState(false);

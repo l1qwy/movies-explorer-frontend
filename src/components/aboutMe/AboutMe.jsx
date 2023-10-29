@@ -5,8 +5,8 @@ import Portfolio from "../portfolio/Portfolio"
 
 export default function aboutMe() {
   return (
-    <div className="about-me page__container">
-      <h1 className="about-me__title">Студент</h1>
+    <section className="about-me">
+      <h2 className="about-me__title">Студент</h2>
       <div className="about-me__info">
         <div className="about-me__text">
           <h2 className="about-me__name">Виталий</h2>
@@ -19,6 +19,6 @@ export default function aboutMe() {
       <Portfolio>
         
       </Portfolio>
-    </div>
+    </section>
   )
 }

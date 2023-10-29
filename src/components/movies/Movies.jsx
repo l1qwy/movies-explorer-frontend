@@ -21,7 +21,7 @@ export default function Movies({ cards }) {
       } else if (screenWidth <= 1024) {
         setCardLimit(12); 
       } else {
-        setCardLimit(16);
+        setCardLimit(12);
       }
     };
 

@@ -4,7 +4,7 @@ import "./moviesCardList.css";
 export default function MoviesCardList({ visibleCards, name }) {
 
   return (
-    <section className="movies-cardList page__container" name="movies-cardList">
+    <section className="movies-cardList">
       {visibleCards.map((data) => {
         return (
           <article key={data.id}> 

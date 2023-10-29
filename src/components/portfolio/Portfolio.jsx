@@ -3,8 +3,8 @@ import portfolioImg from "../../images/portfolio-link.svg";
 
 export default function Portfolio() {
   return (
-    <div className="portfolio">
-      <h1 className="portfolio__title">Портфолио</h1>
+    <section className="portfolio">
+      <h2 className="portfolio__title">Портфолио</h2>
       <ul className="portfolio__container">
         <li className="portfolio__links">
           <a className="portfolio__link" href="https://l1qwy.github.io/howTo-learn/" target="_blank" rel="noreferrer">
@@ -25,6 +25,6 @@ export default function Portfolio() {
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }

@@ -2,7 +2,7 @@ const validation = {
   inputSelector: ".profile__field",
   submitButtonSelector: ".submit",
   inactiveButtonClass: "submit_disabled",
-  inputErrorClass: "form__field_error",
+  inputErrorClass: "form__field-error",
   errorClass: "form__error",
 };
 

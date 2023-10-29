@@ -7,11 +7,17 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: rgba(32, 32, 32, 1);
+  font-family: "Inter", Arial, sans-serif;
 }
 
 a, button {
   cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
   }
+
+p, h1, h2, h3, h4, h5 {
+  font-family: "Inter", Arial, sans-serif;
+}
 
 /* button:hover {
   opacity: 0.8;
@@ -20,3 +26,31 @@ a, button {
 a:hover {
   opacity: 0.7;
 }
+
+/* @media screen and (max-width: 768px) {
+  .app__container {
+    padding-right: calc( (100vw - 320px)/(1280 - 320) * (107 - 0) + 0px);
+    padding-left: calc( (100vw - 320px)/(1280 - 320) * (107 - 0) + 0px);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .app__container {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .app__container_for_promo {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .app__container_for_about-me {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+} */

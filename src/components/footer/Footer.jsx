@@ -2,10 +2,10 @@ import "./footer.css";
 
 export default function Footer() {
   return (
-    <footer className="footer page__container">
-      <h1 className="footer__production footer__prodaction__type__mobile">
+    <footer className="footer">
+      <h2 className="footer__production">
         Учебный проект Яндекс.Практикум х BeatFilm.
-      </h1>
+      </h2>
       <div className="footer__copyring">
         <p className="footer__copyring-text footer__copyring-text_type_year">&copy; 2023</p>
         <div className="footer__copyring-sites">

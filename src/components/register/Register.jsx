@@ -9,7 +9,7 @@ export default function Register({
   labelPassword,
 }) {
   return (
-    <section className="register page__container" name="register">
+    <div className="register app__container">
       <main>
         <Form
           name="register"
@@ -20,6 +20,6 @@ export default function Register({
           labelPassword={labelPassword}
         />
       </main>
-    </section>
+    </div>
   );
 }

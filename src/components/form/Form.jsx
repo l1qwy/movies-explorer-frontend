@@ -26,7 +26,7 @@ export default function Form({
     <form className="form" name={name} onSubmit={handleSubmit}>
       <Link to="/">
         <img
-          className="header__logo header__logo_type_auth"
+          className="form__logo form__logo_type_auth"
           src={Logo__img}
           alt="Логотип страницы"
         />
@@ -51,7 +51,7 @@ export default function Form({
               onChange={handleChange}
             ></input>
             <div
-              className={`form__field-error ${isInputValid.name ? "" : "form__field_error"}`}
+              className={`form__field-error ${isInputValid.name ? "" : "form__field-error"}`}
             >
                 <span id="name-error">{errorMessage.name}</span>
               </div></>
@@ -75,7 +75,7 @@ export default function Form({
           ></input>
           <div
             className={`form__field-error ${
-              isInputValid.email ? "" : "form__field_error"
+              isInputValid.email ? "" : "form__field-error"
             }`}
           >
             <span id="email-error">{errorMessage.email}</span>
@@ -99,7 +99,7 @@ export default function Form({
           ></input>
           <div
             className={`form__field-error ${
-              isInputValid.password ? "" : "form__field_error"
+              isInputValid.password ? "" : "form__field-error"
             }`}
           >
             <span id="password-error">{errorMessage.password}</span>
@@ -123,11 +123,11 @@ export default function Form({
             ? "Уже зарегистрированы?"
             : "Ещё не зарегистрированы?"}&nbsp;
           {name === "register" ? (
-            <Link to="/signin" className="form__note_type_link">
+            <Link to="/signin" className="form__auth-link">
               Войти
             </Link>
           ) : (
-            <Link to="/signup" className="form__note_type_link">
+            <Link to="/signup" className="form__auth-link">
               Регистрация
             </Link>
           )}

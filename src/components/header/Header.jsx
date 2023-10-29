@@ -10,8 +10,8 @@ export default function Header({ name }) {
   return !isLoged ? (
     
     <header
-      className={`header page__container ${
-        name === "home-page" ? "header__home-page" : ""
+      className={`header ${
+        name === "home-page" ? "app__home-page" : ""
       }`}
     >
       <NavLink to="/">
