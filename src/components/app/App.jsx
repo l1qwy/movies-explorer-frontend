@@ -7,14 +7,15 @@ import Login from "../login/Login";
 import Page404 from "../page404/Page404"
 import Movies from "../movies/Movies";
 import SavedMovies from "../savedMovies/savedMovies";
-import api from "../../utils/api";
+import MoviesApi from "../../utils/moviesApi";
 import "./app.css"
 
 export default function App() {
   const [cards, setCards] = useState([]);
+  const [isLoged, setIsLoged] = useState(false);
 
   useEffect(() => {
-      Promise.all([api.getServerCards()])
+      Promise.all([MoviesApi.getServerCards()])
         .then(([cardsInfo]) => {
           setCards(cardsInfo);
         })
