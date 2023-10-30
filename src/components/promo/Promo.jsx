@@ -1,4 +1,4 @@
-import promoImg from "../../images/promo-logo.svg";
+import promoImg from "../../images/promo-logo.png";
 import "./promo.css";
 
 export default function Promo() {
@@ -8,20 +8,17 @@ export default function Promo() {
   };
 
   return (
-    <section className="promo page__container">
-      <div className="promo__textContainer">
+    <section className="promo">
+      <div className="promo__text-container">
         <h1 className="promo__title">
-          Учебный проект студента
-          <nobr />
-          факультета Веб-разработки.
+          Учебный&nbsp;проект студента факультета Веб&zwj;-&zwj;разработки.
         </h1>
         <p className="promo__tip">
-          Листайте ниже, чтобы узнать больше
-          <br /> про этот проект и его создателя.
+          Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
         <button
-          className="promo__learnMore"
-          id="promo__learnMore"
+          className="promo__learn-more"
+          id="promo__learn-more"
           onClick={handleButtonClick}
         >
           Узнать больше
@@ -29,7 +26,7 @@ export default function Promo() {
         <div id="targetDiv"></div>
       </div>
       <img
-        className="promo__img"
+        className="promo-img"
         src={promoImg}
         alt="Картинка главной страницы"
       />

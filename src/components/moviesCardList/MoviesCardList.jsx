@@ -1,14 +1,14 @@
 import MoviesCard from "../moviesCard/MoviesCard";
 import "./moviesCardList.css";
 
-export default function MoviesCardList({ visibleCards }) {
+export default function MoviesCardList({ visibleCards, name }) {
 
   return (
-    <section className="moviesCardList page__container" name="moviesList">
+    <section className="movies-cardList">
       {visibleCards.map((data) => {
         return (
           <article key={data.id}> 
-            <MoviesCard  cards={data} />
+            <MoviesCard  cards={data} name={name}/>
           </article>
         );
       })}

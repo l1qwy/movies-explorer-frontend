@@ -9,8 +9,8 @@ export default function Page404({ status = 404, message = "Страница не
     <main>
       <section className="page404">
         <div>
-          <h2 className="page404__title">{status}</h2>
-          <h3 className="page404__message">{message}</h3>
+          <h1 className="page404__title">{status}</h1>
+          <h2 className="page404__message">{message}</h2>
         </div>
         <Link className="page404__link" onClick={toBack}>Назад</Link>
       </section>

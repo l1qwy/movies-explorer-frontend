@@ -8,14 +8,16 @@ export default function Login({
   labelPassword,
 }) {
   return (
-    <section className="login page__container" name="login">
-      <Form
-        name="login"
-        title={title}
-        textButton={textButton}
-        labelEmail={labelEmail}
-        labelPassword={labelPassword}
-      />
-    </section>
+    <div className="login app__container">
+      <main>
+        <Form
+          name="login"
+          title={title}
+          textButton={textButton}
+          labelEmail={labelEmail}
+          labelPassword={labelPassword}
+        />
+      </main>
+    </div>
   );
 }

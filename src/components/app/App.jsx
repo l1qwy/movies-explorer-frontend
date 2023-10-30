@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import "../page/page.css";
 import Main from "../main/Main";
 import Profile from "../profile/Profile";
 import Register from "../register/Register";
@@ -8,14 +7,15 @@ import Login from "../login/Login";
 import Page404 from "../page404/Page404"
 import Movies from "../movies/Movies";
 import SavedMovies from "../savedMovies/savedMovies";
-import api from "../../utils/api";
+import MoviesApi from "../../utils/moviesApi";
 import "./app.css"
 
 export default function App() {
   const [cards, setCards] = useState([]);
+  const [isLoged, setIsLoged] = useState(false);
 
   useEffect(() => {
-      Promise.all([api.getServerCards()])
+      Promise.all([MoviesApi.getServerCards()])
         .then(([cardsInfo]) => {
           setCards(cardsInfo);
         })
@@ -23,6 +23,11 @@ export default function App() {
           console.error("Ошибка при формировании страницы " + error)
         );
   }, []);
+  
+
+  function handleLogin (name, email, event) {
+    event.preventDefault()
+  }
 
   return (
       <div className="app">
@@ -35,7 +40,7 @@ export default function App() {
             element={
               <Register
                 title="Добро пожаловать!"
-                textButton="Регистрация"
+                textButton="Зарегистрироваться"
                 labelName="Имя"
                 labelEmail="E-mail"
                 labelPassword="Пароль"
@@ -56,7 +61,7 @@ export default function App() {
           <Route
             path="/profile"
             element={
-              <Profile />
+              <Profile onLogin={handleLogin}/>
             }
           />
           <Route path="*" element={<Page404 />} />

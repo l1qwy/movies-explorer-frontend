@@ -7,8 +7,8 @@ import Techs from "../techs/Techs";
 
 export default function Main() {
   return (
-    <main>
-      <Header name="homePage"/>
+    <div>
+      <Header name="home-page"/>
       <main>
         <Promo />
 
@@ -19,6 +19,6 @@ export default function Main() {
         <AboutMe />
       </main>
       <Footer />
-    </main>
+    </div>
   );
 }

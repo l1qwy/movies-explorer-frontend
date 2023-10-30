@@ -9,7 +9,6 @@
 .page404__title {
   margin: 0 auto;
   color: white;
-  font-family: "Inter", Arial, sans-serif;
   font-size: 140px;
   font-weight: 400;
   line-height: 1;
@@ -21,7 +20,6 @@
 .page404__message {
   margin: 0 auto;
   color: white;
-  font-family: "Inter", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
@@ -31,7 +29,6 @@
   }
 
 .page404__link {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
@@ -41,8 +38,24 @@
   text-decoration: none;
   padding-top: 190px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .page404__title {
     padding-top: 422px;  }
+}
+
+@media screen and (max-width: 375px ) {
+  .page404__title {
+    font-size: 80px;
+    padding-top: 337px;
+  }
+
+  .page404__message {
+    font-size: 12px;
+  }
+
+  .page404__link {
+    font-size: 12px;
+    padding-top: 288px;
+  }
 }
 

@@ -1,8 +1,18 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 396px;
+  width: 100%;
+  max-width: 396px;
   margin: 0 auto;
+}
+
+.form__logo {
+  height: 38px;
+  width: 38px;
+}
+
+.form__logo_type_auth {
+  margin-top: 70px;
 }
 
 .form__field {
@@ -13,7 +23,32 @@
   position: relative;
 }
 
-.form__field_register {
+.form__field::placeholder {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(139, 139, 139, 1);
+  opacity: 0.2;
+}
+
+.form__field-error {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(238, 52, 101, 1);
+}
+
+.form__field-error {
+  min-height: 18px;
+}
+
+.form__field_type_register {
   font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -21,34 +56,23 @@
   letter-spacing: 0em;
   text-align: left;
   color: white;
-  padding: 0px 0 11px;
+  padding: 0px 0 14px 0;
 }
 
-.form__field_register:first-of-type {
-  margin-top: 38px;
+.form__error_password {
+  color: rgba(238, 52, 101, 1);
 }
 
-.form__field_register::placeholder {
+.form__field_type_register::placeholder {
   text-align: left;
   color: white;
 }
 
 .form__field-container {
-  position: relative;
-  width: 396px;
-  border-bottom: 1px solid rgba(66, 66, 66, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.form__field-container:last-of-type {
-  padding: 0;
-  border: none;
-  padding: 0;
+  margin-top: 32px;
 }
 
 .form__field-label {
-  position: absolute;
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-size: 10px;
@@ -57,7 +81,6 @@
   letter-spacing: 0em;
   text-align: left;
   color: rgba(139, 139, 139, 1);
-  top: 20px;
 }
 
 .form__note {
@@ -73,7 +96,7 @@
   justify-content: center;
 }
 
-.form__note_link {
+.form__auth-link {
   font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -85,12 +108,12 @@
   margin: 0;
 }
 
-.form__note_link:hover {
+.form__auth-link:hover {
   opacity: 0.8;
 }
 
 .form__submit {
-  width: 396px;
+  width: 100%;
   height: 45px;
   border-radius: 3px;
   background-color: rgba(66, 133, 244, 1);
@@ -109,6 +132,10 @@
   opacity: 0.8;
 }
 
+.form__submit_type_register {
+  margin-top: 132px;
+}
+
 .form__title {
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
@@ -122,35 +149,55 @@
 }
 
 .form__fields-container {
-  margin-top: 20px;
+  margin-top: 31px;
+  position: relative;
 }
 
-.form__submit_login {
-  margin-top: 220px;
+.form__submit_type_login {
+  margin-top: 200px;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .form__fields-container {
-    margin-top: 17px;
+    margin-top: 34px;
   }
 
-  .form__field_register {
-    padding: 0px 0 9px;
+  .form__field_type_register {
+    padding: 3px 0 12px;
   }
 
-  .form__field_register:first-of-type {
-    margin-top: 40px;
+  .form__logo_type_auth {
+    margin-top: 230px;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    max-width: 300px;
+  }
+
+  .form__field {
+    max-width: 300px;
   }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 375px) {
+  .form__title {
+    padding-top: 43px;
+  }
+
   .form__field-container {
-    width: 260px;
+    margin-top: 77px;
    }
 
   .form {
     width: 260px;
     align-items: center;
+  }
+
+  .form__logo_type_auth {
+    margin-top: 60px;
   }
 
   .form__field {
@@ -167,27 +214,27 @@
     font-size: 12px;
   }
 
-  .form__field_register {
-    padding: 0px 0 8px;
+  .form__field_type_register {
+    padding: 4px 0 10px;
   }
 
   .form__fields-container {
-    margin-top: 63px;
-  }
-
-  .form__field_register:first-of-type {
-    margin-top: 40px;
+    margin-top: 76px;
   }
 
   .form__field-label {
     top: 20px;
   }
 
-  .form__submit_login {
-    margin-top: 310px;
+  .form__submit_type_login {
+    margin-top: 290px;
   }
 
-  .form__note_link {
+  .form__auth-link {
     font-size: 12px;
+  }
+
+  .form__submit_type_register {
+    margin-top: 220px;
   }
 }

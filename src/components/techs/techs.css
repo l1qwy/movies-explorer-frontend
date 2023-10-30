@@ -1,5 +1,5 @@
 .techs {
-  padding-bottom: 100px;
+  padding: 0px 70px 100px 70px;
   background-color: rgba(39, 39, 39, 1);
 }
 
@@ -8,6 +8,7 @@
   flex-direction: row;
   margin: 100px auto 0;
   justify-content: center;
+  padding: 0;
 }
 
 .techs__schema-block {
@@ -16,7 +17,10 @@
   border-radius: 10px;
   background-color: rgba(48, 48, 48, 1);
   margin-right: 10px;
-  font-family: "Inter", Arial, sans-serif;
+  list-style-type: none;
+}
+
+.techs__schema-block-title {
   font-size: 14px;
   font-weight: 400;
   line-height: 2.3;
@@ -30,7 +34,6 @@
 }
 
 .techs__title {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.2;
@@ -43,7 +46,6 @@
 }
 
 .techs__topic {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 1.15;
@@ -54,7 +56,6 @@
 }
 
 .techs__topic-description {
-  font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -65,7 +66,11 @@
   margin: 26px auto 0;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
+  .techs {
+    padding: 0 50px 85px 50px;
+  }
+
   .techs__title {
     padding: 90px 0 24px;
   }
@@ -82,15 +87,30 @@
   .techs__schema {
     margin: 82px auto 0;
     width: 97%;
-    padding-bottom: 85px;
+    padding-bottom: 0px;
   }
 
-  .techs__schema-block {
+  .techs__schema-block-title {
     font-size: 12px;
+    line-height: 3;
   }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 425px) {
+  .techs__schema {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 44px auto 0;
+    padding-bottom: 46px;
+  }
+
+  .techs__schema-block {
+    margin: 10px;
+  }
+}
+
+
+@media screen and (max-width: 375px) {
   .techs__schema {
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -116,15 +136,16 @@
 
   .techs__topic-description {
     font-size: 11px;
+    line-height: 1.7;
   }
 
   .techs__title {
     font-size: 18px;
-    padding: 46px 0 24px;
+    padding: 53px 0 24px;
   }
 
   .techs {
-    padding-bottom: 0px;
+    padding: 0px 18px 0px 18px;
   }
 }
 

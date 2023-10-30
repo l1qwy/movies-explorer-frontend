@@ -3,27 +3,31 @@ import "./searchForm.css";
 export default function SearchForm({ isChecked, handleSwitchChange }) {
 
   return (
-    <form className="searchForm page__container" onSubmit={(event) => {event.preventDefault()}}>
-      <div className="searchForm__container">
+    <form className="search-form" name="search-form" onSubmit={(event) => {event.preventDefault()}}>
+      <div className="search-form__container">
         <input
-          className="searchForm__container-input"
+          className="search-form__container-input"
           placeholder="Фильм"
           type="text"
           required
-          noValidate
         />
-        <button className="searchForm__container-btn" type="submit" >Поиск</button>
+        <button className="search-form__container-btn" type="submit" >Поиск</button>
       </div>
-      <label className="searchForm__filter">
+      {/* <label className="search-form__filter">      
         <input 
           type="checkbox"           
           checked={isChecked}
           onChange={handleSwitchChange}
         ></input>
-        <span className="searchForm__filter-slider">
-          <p className="searchForm__filter-label">Короткометражки</p>
-        </span>
+        </label>
+        <div className="search-form__filter-slider">
+          <p className="search-form__filter-label">Короткометражки</p>
+        </div> */}
+      <label class="search-form__filter">
+        <input type="checkbox"></input>
+        <span class="search-form__filter-slider"></span>
       </label>
+
     </form>
   );
 }
