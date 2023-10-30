@@ -1,0 +1,240 @@
+.navigation__menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__items {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto;
+  text-decoration: none;
+}
+
+.navigation__items:first-of-type {
+  margin-right: 20px;
+}
+
+.navigation__items:hover, .navigation__profile-link:hover, .navigation__profile-logo:hover {
+  opacity: 0.8;
+}
+
+.navigation__items.active {
+  font-weight: 500;
+}
+
+.navigation__profile-link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto 15px auto 0px;
+  text-decoration: none;
+}
+
+.navigation__profile-logo {
+  background-color: rgba(15, 65, 87, 1);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-self: center;
+}
+
+.navigation__profile-logoImg {
+  width: 10.38px;
+  height: 10.67px;
+  margin: auto;
+}
+
+.navigation__profile {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+}
+
+.navigation__savedMovies {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  text-align: right;
+  color: white;
+  margin: auto 50px auto 0px;
+  text-decoration: none;
+}
+
+.navigation__img {
+  width: 40px;
+  height: 43px;
+  align-self: end;
+}
+
+.navigation__btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navigation__img_close {
+  width: 32px;
+  height: 32px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__menu {
+    position: fixed;
+    top: 0;
+    right: -520px;
+    flex-direction: column;
+    width: 520px;
+    height: 100%;
+    transition: transform 0.3s linear;
+    background-color: rgba(32, 32, 32, 1);
+    padding-top: 22px;
+    z-index: 1;
+  }
+
+  .navigation__menu.active {
+    transform: translateX(-100%);
+  }  
+  
+  .navigation__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation__container {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 137px 0px 22px 0px;
+  }
+
+  .navigation__btn {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navigation__btn::before {
+    content: url('../../images/navigation-icon.svg');
+  }
+
+  .navigation__btn::after {
+    content: url('../../images/navigation-iconClose.svg');
+    position: fixed;
+    top: 22px;
+    right: -113px;
+    transition: transform 0.3s linear;
+    z-index: 2;
+    width: 100px;
+  }
+  .navigation__btn.active::after {
+    transform: translateX(-100%);
+  }  
+  
+  .navigation__btn:hover::before {
+    opacity: 0.8;
+  }
+
+  .navigation__img {
+    width: 45px;
+    height: 70px;
+  }
+
+  .navigation__img_close {
+    display: block;
+    margin-left: auto;
+    background-color: transparent;
+    padding: 22px 22px 0px 0;
+    margin-bottom: 105px;
+  }
+
+  .navigation__items {
+    margin-bottom: 28px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: auto 0px 25px 0px;
+    padding-bottom: 4px;
+  }
+
+  .navigation__items-slide:first-of-type {
+    margin-right: 0;
+  }
+
+  .navigation__profile-slide {
+    margin: auto;
+  }
+
+  .navigation__profile{
+    justify-content: center;
+    margin-bottom: 254px;
+  }
+
+  .navigation__items.active {
+    border-bottom: 1px solid white;
+  }
+
+  .navigation__profile-logo {
+    background-color: rgba(49, 49, 49, 1);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .navigation__menu {
+    right: -100vw;
+    width: 100vw;
+    height: 100%;
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .navigation__menu {
+    right: -100vw;
+    width: 100vw;
+    height: 100%;
+    padding-top: 15px;
+  }
+
+  .navigation__btn_close {
+    margin-right: 13px;
+    margin-top: 0px;
+  }
+
+  .navigation__container {
+    padding: 130px 0px 22px 0px;
+  }
+
+  .navigation__items {
+    margin: auto 0px 20px 0px;
+  }
+
+  .navigation__profile {
+    justify-content: center;
+    margin-bottom: 448px;
+  }
+
+  .navigation__btn::after {
+    top: 13px;
+    right: -120px;
+  }
+}

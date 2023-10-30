@@ -1,0 +1,53 @@
+.more-cards {
+  background-color: rgba(32, 32, 32, 1);
+  padding: 63px 70px 78px;
+}
+
+.more-cards__btn {
+  width: 100%;
+  height: 36px;
+  background-color: rgba(47, 47, 47, 1);
+  border-radius: 6px;
+  border: none;
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: center;
+  color: white;
+}
+
+.more-cards-noBtn {
+  padding: 63px 70px 170px;
+  background-color: rgba(32, 32, 32, 1);
+}
+
+.more-cards__btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .more-cards {
+    padding: 80px 30px 100px 30px;
+  }
+
+  .more-cards-noBtn {
+    padding: 90px 30px 100px 30px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .more-cards-noBtn {
+    padding: 125px 10px 0 10px;
+  }
+
+  .more-cards__btn {
+    margin: 79px auto 32px;
+  }
+
+  .more-cards {
+    padding: 0 10px 0 10px;;
+  }
+}
