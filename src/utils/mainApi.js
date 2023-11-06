@@ -104,7 +104,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://localhost:3001/",
+  baseUrl: "api.liqwymovies.nomoredomainsrocks.ru/",
 });
 
 export default mainApi;
