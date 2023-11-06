@@ -104,7 +104,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "https://api.liqwymovies.nomoredomainsrocks.ru/",
+  baseUrl: "http://api.liqwymovies.nomoredomainsrocks.ru/",
 });
 
 export default mainApi;
