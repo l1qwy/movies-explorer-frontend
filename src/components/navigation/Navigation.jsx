@@ -14,11 +14,6 @@ export default function Navigation() {
         type="button"
       ></button>
       <div className={`navigation__menu ${isOpen ? "active" : ""}`}>
-        {/* <button
-          className="navigation__btn navigation__btn_close"
-          onClick={() => setOpen(!isOpen)}
-          type="button"
-        ></button> */}
         <nav className="navigation__container">
           <div className="navigation__list">
             {isOpen ? (
@@ -34,7 +29,7 @@ export default function Navigation() {
             <NavLink className="navigation__items" to="/movies">
               Фильмы
             </NavLink>
-            <NavLink className="navigation__items" to="/savedMovies">
+            <NavLink className="navigation__items" to="/saved-movies">
               Сохраненные фильмы
             </NavLink>
           </div>

@@ -1,16 +1,16 @@
+import { useLocation } from "react-router-dom";
 import "./moreCards.css";
 
-export default function MoreCards({ setCardLimit, cardLimit }) {
+export default function MoreCards({ onLoadMore, movies, cardLimit }) {
+  const { pathname } = useLocation();
   return (
-    <div className={cardLimit <= 3 ? "more-cards-noBtn" : "more-cards"}>
-      {cardLimit > 3 && (
-        <button
-          className="more-cards__btn"
-          onClick={() => setCardLimit(cardLimit + 3)}
-        >
-          Еще
-        </button>
-      )}
+    pathname === '/saved-movies' ?
+    <div className="more-cards_no_btn"></div>
+    :
+    <div className="more-cards">
+      {movies.length > cardLimit &&
+        <button className="more-cards__btn" onClick={onLoadMore}>Еще</button>
+        }
     </div>
   );
 }

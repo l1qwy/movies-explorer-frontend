@@ -7,6 +7,9 @@ export default function Register({
   labelName,
   labelEmail,
   labelPassword,
+  onRegister,
+  isSuccessfully,
+  setIsSuccessfully
 }) {
   return (
     <div className="register app__container">
@@ -18,6 +21,9 @@ export default function Register({
           labelName={labelName}
           labelEmail={labelEmail}
           labelPassword={labelPassword}
+          onRegister={onRegister}
+          isSuccessfully={isSuccessfully}
+          setIsSuccessfully={setIsSuccessfully}
         />
       </main>
     </div>

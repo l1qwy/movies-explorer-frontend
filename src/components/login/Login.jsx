@@ -6,6 +6,9 @@ export default function Login({
   textButton,
   labelEmail,
   labelPassword,
+  onLogin,
+  isSuccessfully,
+  setIsSuccessfully
 }) {
   return (
     <div className="login app__container">
@@ -16,6 +19,9 @@ export default function Login({
           textButton={textButton}
           labelEmail={labelEmail}
           labelPassword={labelPassword}
+          onLogin={onLogin}
+          isSuccessfully={isSuccessfully}
+          setIsSuccessfully={setIsSuccessfully}
         />
       </main>
     </div>

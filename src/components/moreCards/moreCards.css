@@ -28,19 +28,23 @@
   opacity: 0.8;
 }
 
+.more-cards_no_btn {
+  height: 230px;
+}
+
 @media screen and (max-width: 768px) {
   .more-cards {
     padding: 80px 30px 100px 30px;
   }
 
-  .more-cards-noBtn {
-    padding: 90px 30px 100px 30px;
+  .more-cards_no_btn {
+    height: 215px;
   }
 }
 
 @media screen and (max-width: 375px) {
-  .more-cards-noBtn {
-    padding: 125px 10px 0 10px;
+  .more-cards_no_btn {
+    height: 125px;
   }
 
   .more-cards__btn {
