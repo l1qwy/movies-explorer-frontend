@@ -34,7 +34,7 @@ export default function Form({
 
   function loginSubmit(event) {
     event.preventDefault();
-    onLogin(inputValue.email, inputValue.password);
+    onLogin(inputValue.email, inputValue.password, inputValue.name);
   }
 
   return (
