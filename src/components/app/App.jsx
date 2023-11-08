@@ -54,13 +54,16 @@ const App = () => {
       await mainApi.registration(name, email, password);
       setIsLogged(false);
       navigate("/movies");
+      setIsSending(false);
       await handleLogin(email, password);
     } catch (error) {
       setIsError(true);
       setIsSuccessfully(false);
+      setIsSending(false);
       console.error("Ошибка при регистрации: ", error);
     } finally {
       setIsLoading(false);
+      setIsSending(false);
     }
   };
 
@@ -71,12 +74,15 @@ const App = () => {
       setIsLogged(true);
       setIsSuccessfully(true)
       navigate("/movies");
+      setIsSending(false);
       window.scroll(0, 0);
     } catch (error) {
-      console.error("Ошибка при авторизации: ", error);
       setIsSuccessfully(false)
+      setIsSending(false);
+      console.error("Ошибка при авторизации: ", error);
     } finally {
       setIsLoading(false);
+      setIsSending(false);
     }
   };
 
@@ -87,6 +93,7 @@ const App = () => {
       setIsChanged(false);
       setIsSuccessfully(true);
       setIsError(false);
+      setIsSending(false);
     } catch (error) {
       setIsError(true);
       console.error("Ошибка редактирования пользовательских данных: ", error);
@@ -99,7 +106,6 @@ const App = () => {
   const handleLogout = () => {
     setIsLogged(false);
     localStorage.clear();
-    navigate("/");
   };
 
   const handleDeleteMovie = async (deleteMovieId) => {
@@ -152,6 +158,8 @@ const App = () => {
                     onRegister={handleRegister}
                     isSuccessfully={isSuccessfully}
                     setIsSuccessfully={setIsSuccessfully}
+                    isSending={isSending}
+                    setIsSending={setIsSending}
                   />
                 )
               }
@@ -170,6 +178,8 @@ const App = () => {
                     onLogin={handleLogin}
                     isSuccessfully={isSuccessfully}
                     setIsSuccessfully={setIsSuccessfully}
+                    isSending={isSending}
+                    setIsSending={setIsSending}
                   />
                 )
               }

@@ -15,7 +15,9 @@ export default function Form({
   onRegister,
   onLogin,
   isSuccessfully,
-  setIsSuccessfully
+  setIsSuccessfully,
+  isSending,
+  setIsSending
 }) {
 
   const { inputValue, errorMessage, isValid, isInputValid, handleChange } =
@@ -23,18 +25,21 @@ export default function Form({
 
   useEffect(() => {
     setIsSuccessfully(true)
+    setIsSending(false);
   }, [setIsSuccessfully])
 
   const currentUser = useContext(CurrentUserContext);
 
   function registerSubmit(event) {
     event.preventDefault();
-    onRegister(inputValue.nameProfile, inputValue.email, inputValue.password);
+    setIsSending(true)
+    onRegister(inputValue.name, inputValue.email, inputValue.password);
   }
 
   function loginSubmit(event) {
+    setIsSending(true)
     event.preventDefault();
-    onLogin(inputValue.email, inputValue.password, inputValue.name);
+    onLogin(inputValue.email, inputValue.password);
   }
 
   return (
@@ -59,20 +64,21 @@ export default function Form({
             <label className="form__field-label">{labelName}</label>
             <input
               className={`form__field form__field_type_register ${
-                isInputValid.nameProfile === undefined ||
-                isInputValid.nameProfile
+                isInputValid.name === undefined ||
+                isInputValid.name
                   ? ""
                   : "form__error"
               }`}
-              name="nameProfile"
+              name="name"
               type="text"
               placeholder="Введите Ваше Имя"
               autoComplete="off"
               minLength={3}
               required
+              disabled={isSending}
               value={
-                (currentUser.name = inputValue.nameProfile
-                  ? inputValue.nameProfile
+                (currentUser.name = inputValue.name
+                  ? inputValue.name
                   : "")
               }
               onChange={(event) => {
@@ -82,10 +88,10 @@ export default function Form({
             ></input>
             <div
               className={`form__field-error ${
-                isInputValid.nameProfile ? "" : "form__field-error"
+                isInputValid.name ? "" : "form__field-error"
               }`}
             >
-              <span id="name-error">{errorMessage.nameProfile}</span>
+              <span id="name-error">{errorMessage.name}</span>
             </div>
           </>
         )}
@@ -102,6 +108,8 @@ export default function Form({
           autoComplete="off"
           minLength={3}
           required
+          disabled={isSending}
+          pattern="^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$"
           value={(currentUser.email = inputValue.email ? inputValue.email : "")}
           onChange={(event) => {
             handleChange(event)
@@ -128,6 +136,7 @@ export default function Form({
           autoComplete="off"
           minLength={3}
           required
+          disabled={isSending}
           value={inputValue.password ? inputValue.password : ""}
           onChange={(event) => {
             handleChange(event)
@@ -149,7 +158,7 @@ export default function Form({
 
           <button
           className={`form__submit ${isValid ? "" : "form__submit_disable"}`}
-            disabled={!isValid}
+            disabled={!isValid | isSending}
             type="submit"
           > 
             {textButton}

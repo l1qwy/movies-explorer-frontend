@@ -13,7 +13,6 @@ export default function Movies({
   isLoading,
   setIsLoading
 }) {
-  console.log(isLoading)
   const [allMovies, setAllmovies] = useState([]);
   const [sortingMovies, setSortingMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

@@ -8,7 +8,9 @@ export default function Login({
   labelPassword,
   onLogin,
   isSuccessfully,
-  setIsSuccessfully
+  setIsSuccessfully,
+  isSending,
+  setIsSending
 }) {
   return (
     <div className="login app__container">
@@ -22,6 +24,8 @@ export default function Login({
           onLogin={onLogin}
           isSuccessfully={isSuccessfully}
           setIsSuccessfully={setIsSuccessfully}
+          isSending={isSending}
+          setIsSending={setIsSending}
         />
       </main>
     </div>

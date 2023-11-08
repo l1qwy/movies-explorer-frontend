@@ -3,7 +3,6 @@ import Header from "../header/Header";
 import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import useFormValidation from "../../utils/useFormValidation";
-import { emailRegex } from "../../utils/constants";
 import { Link } from "react-router-dom";
 
 export default function Profile({
@@ -17,7 +16,6 @@ export default function Profile({
   isSending,
   setIsSending
 }) {
-  console.log(isSending)
   const currentUser = useContext(CurrentUserContext);
 
   const {
@@ -34,13 +32,13 @@ export default function Profile({
   }, [setIsSuccessfully]);
 
   useEffect(() => {
-    reset({ nameProfile: currentUser.name, emailProfile: currentUser.email });
-  }, [reset, currentUser]);
+    reset({ name: currentUser.name, email: currentUser.email });
+  }, [reset, currentUser.name, currentUser.email]);
 
   function handleSubmit(event) {
     event.preventDefault();
     setIsSending(true)
-    onEditProfile(inputValue.nameProfile, inputValue.emailProfile);
+    onEditProfile(inputValue.name, inputValue.email);
   }
 
   return (
@@ -58,56 +56,56 @@ export default function Profile({
             <span className="profile__field-label">Имя</span>
             <input
               className={`profile__field ${
-                isInputValid.nameProfile === undefined ||
-                isInputValid.nameProfile
+                isInputValid.name === undefined ||
+                isInputValid.name
                   ? ""
                   : "profile__error"
               }`}
-              name="nameProfile"
+              name="name"
               type="text"
               placeholder="Введите Имя"
               minLength={3}
               required
-              value={inputValue.nameProfile ? inputValue.nameProfile : ""}
+              value={inputValue.name ? inputValue.name : ""}
               onChange={(event) => {
                 handleChange(event);
                 setIsSuccessfully(false);
               }}
-              disabled={!isChanged}
+              disabled={!isChanged | isSending}
             ></input>
             <div
               className={`profile__field-error ${
-                isInputValid.nameProfile ? "" : "profile__text-error"
+                isInputValid.name ? "" : "profile__text-error"
               }`}
             >
-              <span id="name-error">{errorMessage.nameProfile}</span>
+              <span id="name-error">{errorMessage.name}</span>
             </div>
             <span className="profile__field-label">E-mail</span>
             <input
               className={`profile__field ${
-                isInputValid.emailProfile === undefined ||
-                isInputValid.emailProfile
+                isInputValid.email === undefined ||
+                isInputValid.email
                   ? ""
                   : "profile__error"
               }`}
-              name="emailProfile"
+              name="email"
               type="email"
               placeholder="Введите E-mail"
               required
-              pattern={emailRegex}
-              value={inputValue.emailProfile ? inputValue.emailProfile : ""}
+              pattern="^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$"
+              value={inputValue.email ? inputValue.email : ""}
               onChange={(event) => {
                 handleChange(event);
                 setIsSuccessfully(false);
               }}
-              disabled={!isChanged}
+              disabled={!isChanged | isSending}
             ></input>
             <div
               className={`profile__field-error ${
-                isInputValid.emailProfile ? "" : "profile__text-error"
+                isInputValid.email ? "" : "profile__text-error"
               }`}
             >
-              <span id="email-error">{errorMessage.emailProfile}</span>
+              <span id="email-error">{errorMessage.email}</span>
             </div>
           </fieldset>
           <nav className="profile__nav">
@@ -125,7 +123,7 @@ export default function Profile({
                   onChange={(event) => {
                     handleChange(event);
                   }}
-                  disabled={!isValid || isSending}
+                  disabled={!isValid | isSending}
                 >
                   Сохранить
                 </button>
@@ -146,7 +144,7 @@ export default function Profile({
                 </button>
                 <Link
                   type="submit"
-                  to="/signup"
+                  to="/"
                   className="profile__submit profile__submit_theme_outline-red"
                   onClick={onLogout}
                 >

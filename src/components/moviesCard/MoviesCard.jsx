@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import iconSaveCard from "../../images/iconSaveCard.svg";
 import iconDeleteCard from "../../images/iconDeleteCard.svg";
 import { Link, useLocation } from "react-router-dom";
+import { ConvertToTime } from "../../utils/constants";
 
 export default function MoviesCard({ data, savedMovies, onDelete, onSave }) {
   const { pathname } = useLocation();
@@ -23,17 +24,11 @@ export default function MoviesCard({ data, savedMovies, onDelete, onSave }) {
     }
   }
 
-  function convertToTime(duration) {
-    const hours = Math.floor(duration / 60);
-    const minutes = duration % 60;
-    return `${hours}ч ${minutes < 10 ? "0" : ""}${minutes}м`;
-  }
-
   return (
     <div className="movies-card">
       <div className="movies-card__info">
         <h2 className="movies-card__info-name">{data.nameRU}</h2>
-        <p className="movies-card__info-time">{convertToTime(data.duration)}</p>
+        <p className="movies-card__info-time">{ConvertToTime(data.duration)}</p>
       </div>
       <Link to={data.trailerLink} target="_blank">
         <img

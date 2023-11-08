@@ -9,7 +9,9 @@ export default function Register({
   labelPassword,
   onRegister,
   isSuccessfully,
-  setIsSuccessfully
+  setIsSuccessfully,
+  isSending,
+  setIsSending
 }) {
   return (
     <div className="register app__container">
@@ -24,6 +26,8 @@ export default function Register({
           onRegister={onRegister}
           isSuccessfully={isSuccessfully}
           setIsSuccessfully={setIsSuccessfully}
+          isSending={isSending}
+          setIsSending={setIsSending}
         />
       </main>
     </div>

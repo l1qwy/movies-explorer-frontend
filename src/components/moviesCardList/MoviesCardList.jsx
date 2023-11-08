@@ -4,6 +4,7 @@ import MoviesCard from "../moviesCard/MoviesCard";
 import Preloader from "../preloader/Preloader";
 import "./moviesCardList.css";
 import { useLocation } from "react-router-dom";
+import { DesktopDisplay, LaptopDisplay, MobileDisplay, MobileDisplayAddCard, TabletDisplay } from "../../utils/constants";
 
 export default function MoviesCardList({
   movies,
@@ -18,7 +19,7 @@ export default function MoviesCardList({
   const visibleCards = movies.slice(0, cardLimit);
 
   const handleLoadMore = () => {
-    if (window.innerWidth >= 320 && window.innerWidth <= 768) {
+    if (MobileDisplayAddCard) {
       setCardLimit((prevCardLimit) => prevCardLimit + 2);
     } else {
       setCardLimit((prevCardLimit) => prevCardLimit + 3);
@@ -28,15 +29,15 @@ export default function MoviesCardList({
   useEffect(() => {
     if (pathname === "/movies") {
       const handleResize = () => {
-        if (window.innerWidth >= 1280 || window.innerWidth >= 1024) {
+        if (DesktopDisplay) {
           setCardLimit(12);
-        } else if (window.innerWidth >= 1024 || window.innerWidth >= 768) {
+        } else if (LaptopDisplay) {
+          setCardLimit(12);
+        } else if (TabletDisplay) {
           setCardLimit(8);
-        } else if (window.innerWidth >= 320 && window.innerWidth <= 570) {
+        } else if (MobileDisplay) {
           setCardLimit(5);
-        } else {
-          setCardLimit(18);
-        }
+        } 
       };
 
       window.addEventListener("resize", handleResize);
@@ -45,6 +46,7 @@ export default function MoviesCardList({
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [pathname]);
+
 
   return (
     <section>
