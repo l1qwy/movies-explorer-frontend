@@ -5,6 +5,7 @@ import Footer from "../footer/Footer";
 import { useCallback, useEffect, useState } from "react";
 import "./movies.css";
 import moviesApi from "../../utils/moviesApi";
+import { timeToShorth } from "../../utils/constants";
 
 export default function Movies({
   saveMovie,
@@ -29,7 +30,7 @@ export default function Movies({
         const searchName = movie.nameRU
           .toLowerCase()
           .includes(search.toLowerCase());
-        return isCheckShots ? searchName && movie.duration <= 40 : searchName;
+        return isCheckShots ? searchName && movie.duration <= timeToShorth : searchName;
       })
     );
   }, []);

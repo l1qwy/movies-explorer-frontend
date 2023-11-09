@@ -98,7 +98,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .header__auth {
     padding-right: 30px;
     padding-left: 30px;

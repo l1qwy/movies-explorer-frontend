@@ -4,7 +4,22 @@ import MoviesCard from "../moviesCard/MoviesCard";
 import Preloader from "../preloader/Preloader";
 import "./moviesCardList.css";
 import { useLocation } from "react-router-dom";
-import { DesktopDisplay, LaptopDisplay, MobileDisplay, MobileDisplayAddCard, TabletDisplay } from "../../utils/constants";
+import {
+  ScreenDesktop,
+  ScreenLaptop,
+  ScreenPad,
+  ScreenMobile,
+  setMoreScreenDesktop,
+  setWithScreenDesktop,
+  setWithScreenLaptop,
+  setWithScreenPad,
+  setWithScreenMobile,
+  getMoreScreenDesktop,
+  getWithScreenDesktop,
+  getWithScreenLaptop,
+  getWithScreenPad,
+  getWithScreenMobile,
+} from "../../utils/constants";
 
 export default function MoviesCardList({
   movies,
@@ -15,29 +30,53 @@ export default function MoviesCardList({
   onDelete,
 }) {
   const { pathname } = useLocation();
-  const [cardLimit, setCardLimit] = useState(0);
+  const [cardLimit, setCardLimit] = useState("");
   const visibleCards = movies.slice(0, cardLimit);
 
-  const handleLoadMore = () => {
-    if (MobileDisplayAddCard) {
-      setCardLimit((prevCardLimit) => prevCardLimit + 2);
-    } else {
-      setCardLimit((prevCardLimit) => prevCardLimit + 3);
+  const cardsRender = () => {
+    const quantity = { set: setMoreScreenDesktop, get: getMoreScreenDesktop };
+    if (window.innerWidth <= ScreenDesktop) {
+      quantity.set = setWithScreenDesktop;
+      quantity.get = getWithScreenLaptop;
     }
+    if (window.innerWidth < ScreenLaptop) {
+      quantity.set = setWithScreenLaptop;
+      quantity.get = getWithScreenLaptop;
+    }
+    if (window.innerWidth < ScreenPad) {
+      quantity.set = setWithScreenPad;
+      quantity.get = getWithScreenPad;
+    }
+    if (window.innerWidth < ScreenMobile) {
+      quantity.set = setWithScreenMobile;
+      quantity.get = getWithScreenMobile;
+    }
+    return quantity;
   };
+
+  const handleLoadMore = () => {
+    setCardLimit(cardLimit + cardsRender().get)
+  }
 
   useEffect(() => {
     if (pathname === "/movies") {
+      setCardLimit(cardsRender().set)
       const handleResize = () => {
-        if (DesktopDisplay) {
-          setCardLimit(12);
-        } else if (LaptopDisplay) {
-          setCardLimit(12);
-        } else if (TabletDisplay) {
-          setCardLimit(8);
-        } else if (MobileDisplay) {
-          setCardLimit(5);
-        } 
+        if (window.innerWidth > getWithScreenDesktop) {
+          setCardLimit(cardsRender().set)
+        }
+        if (window.innerWidth < getWithScreenDesktop) {
+          setCardLimit(cardsRender().set)
+        }
+        if (window.innerWidth < getWithScreenLaptop) {
+          setCardLimit(cardsRender().set)
+        }
+        if (window.innerWidth < getWithScreenPad) {
+          setCardLimit(cardsRender().set)
+        }
+        if (window.innerWidth < getWithScreenMobile) {
+          setCardLimit(cardsRender().set)
+        }
       };
 
       window.addEventListener("resize", handleResize);
@@ -45,8 +84,7 @@ export default function MoviesCardList({
 
       return () => window.removeEventListener("resize", handleResize);
     }
-  }, [pathname]);
-
+  }, [pathname, movies]);
 
   return (
     <section>

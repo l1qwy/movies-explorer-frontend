@@ -120,6 +120,10 @@
   opacity: 0.8;
 }
 
+.profile__submit:disabled {
+  opacity: 1
+}
+
 .profile__submit_theme_outline-red {
   background-color: transparent;
   border: none;

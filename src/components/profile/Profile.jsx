@@ -14,9 +14,10 @@ export default function Profile({
   isChanged,
   setIsChanged,
   isSending,
-  setIsSending
+  setIsSending,
 }) {
   const currentUser = useContext(CurrentUserContext);
+  console.log(isSending)
 
   const {
     inputValue,
@@ -37,7 +38,7 @@ export default function Profile({
 
   function handleSubmit(event) {
     event.preventDefault();
-    setIsSending(true)
+    setIsSending(true);
     onEditProfile(inputValue.name, inputValue.email);
   }
 
@@ -56,8 +57,7 @@ export default function Profile({
             <span className="profile__field-label">Имя</span>
             <input
               className={`profile__field ${
-                isInputValid.name === undefined ||
-                isInputValid.name
+                isInputValid.name === undefined || isInputValid.name
                   ? ""
                   : "profile__error"
               }`}
@@ -83,8 +83,7 @@ export default function Profile({
             <span className="profile__field-label">E-mail</span>
             <input
               className={`profile__field ${
-                isInputValid.email === undefined ||
-                isInputValid.email
+                isInputValid.email === undefined || isInputValid.email
                   ? ""
                   : "profile__error"
               }`}
@@ -116,16 +115,27 @@ export default function Profile({
                 </span>
                 <button
                   className={`profile__submit ${
-                    isValid ? "" : "profile__submit_diabled"
+                    !isValid || inputValue.name === currentUser.name && inputValue.email === currentUser.email ? "profile__submit_diabled" : ""
                   }`}
                   aria-label="edit-erofile"
                   type="submit"
                   onChange={(event) => {
                     handleChange(event);
                   }}
-                  disabled={!isValid | isSending}
+                  disabled={!isValid | isSending || inputValue.name === currentUser.name && inputValue.email === currentUser.email}
                 >
                   Сохранить
+                </button>
+                <button
+                  className="profile__submit_theme_outline-white"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setIsChanged(false);
+                    setIsSending(false);
+                    setIsSuccessfully(false);
+                  }}
+                >
+                  Отменить
                 </button>
               </>
             ) : (
@@ -138,6 +148,7 @@ export default function Profile({
                   onClick={(event) => {
                     event.preventDefault();
                     setIsChanged(true);
+                    setIsSending(false)
                   }}
                 >
                   Редактировать
