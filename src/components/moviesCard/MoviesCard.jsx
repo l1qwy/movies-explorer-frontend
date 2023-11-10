@@ -1,47 +1,56 @@
 import "./moviesCard.css";
-import { durationHourMinute } from "../../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import iconSaveCard from "../../images/iconSaveCard.svg";
-import iconDeleteCard from "../../images/iconDeleteCard.svg"
+import iconDeleteCard from "../../images/iconDeleteCard.svg";
+import { Link, useLocation } from "react-router-dom";
+import { ConvertToTime } from "../../utils/constants";
 
-export default function MoviesCard({ cards, name }) {
-  const [isLiked, setIsLiked] = useState(false);
+export default function MoviesCard({ data, savedMovies, onDelete, onSave }) {
+  const { pathname } = useLocation();
+  const [choose, setChoose] = useState(false);
 
-  function handleLikeToggle() {
-    setIsLiked(!isLiked);
+  useEffect(() => {
+    if (pathname === "/movies")
+      setChoose(savedMovies.some((item) => data.id === item.movieId));
+  }, [savedMovies, data.id, setChoose, pathname]);
+
+  function handleClick() {
+    if (savedMovies.some((item) => data.id === item.movieId)) {
+      setChoose(true);
+      onSave(data);
+    } else {
+      setChoose(false);
+      onSave(data);
+    }
   }
 
   return (
     <div className="movies-card">
       <div className="movies-card__info">
-        <h2 className="movies-card__info-name">{cards.nameRU}</h2>
-        <p className="movies-card__info-time">
-          {Math.round(cards.duration / durationHourMinute)}ч{" "}
-          {cards.duration -
-            durationHourMinute *
-              Math.round(cards.duration / durationHourMinute)}
-          м
-        </p>
+        <h2 className="movies-card__info-name">{data.nameRU}</h2>
+        <p className="movies-card__info-time">{ConvertToTime(data.duration)}</p>
       </div>
-      <img
-        className="movies-card__img"
-        src={`https://api.nomoreparties.co/${cards.image.url}`}
-        alt={`Постер ${cards.nameRU}`}
-      ></img>
-      {name === "savedMovies" ? (
-        <button className="movies-card__btn">
-          <img className="movies-card__saveIcon"  src={iconDeleteCard} alt="иконка удаления фильма" />
-        </button>
-      ) : (
-        <button
-          className={
-            isLiked
-              ? "movies-card__btn movies-card__btn_saved"
-              : "movies-card__btn"
+      <Link to={data.trailerLink} target="_blank">
+        <img
+          className="movies-card__img"
+          src={
+            pathname === "/movies"
+              ? `https://api.nomoreparties.co/${data.image.url}`
+              : data.image
           }
-          onClick={handleLikeToggle}
+          alt={`Постер ${data.nameRU}`}
+        ></img>
+      </Link>
+
+      {pathname === "/movies" ? (
+        <button
+          type="button"
+          className={`movies-card__btn ${
+            choose ? "movies-card__btn_saved" : ""
+          }`}
+          onClick={handleClick}
         >
-          {isLiked ? (
+          {choose ? (
             <img
               className="movies-card__saveIcon"
               src={iconSaveCard}
@@ -50,6 +59,20 @@ export default function MoviesCard({ cards, name }) {
           ) : (
             "Сохранить"
           )}
+        </button>
+      ) : (
+        <button
+          type="button"
+          className={`movies-card__btn ${
+            choose ? "movies-card__btn_deleted" : ""
+          }`}
+          onClick={() => onDelete(data._id)}
+        >
+          <img
+            className="movies-save__deleteIcon"
+            src={iconDeleteCard}
+            alt="иконка сохраненного фильма"
+          />
         </button>
       )}
     </div>

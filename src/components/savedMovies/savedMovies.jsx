@@ -2,65 +2,67 @@ import Header from "../header/Header";
 import SearchForm from "../searchForm/SearchForm";
 import MoviesCardList from "../moviesCardList/MoviesCardList";
 import Footer from "../footer/Footer";
-import MoreCards from "../moreCards/MoreCards";
-import "./savedMovies.css"
-import { useEffect, useState } from "react";
+import "./savedMovies.css";
+import { useCallback, useEffect, useState } from "react";
 
-export default function SavedMovies({ cards }) {
+export default function SavedMovies({ onDelete, savedMovies, setIsSuccessfully }) {
 
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      if (screenWidth <= 320) {
-        setCardLimit(2); 
-      } else if (screenWidth <= 768) {
-        setCardLimit(3); 
-      } else if (screenWidth <= 1024) {
-        setCardLimit(3); 
-      } else {
-        setCardLimit(3);
-      }
-    };
 
-    window.addEventListener('resize', handleResize);
+  const [sortingMovies, setSortingMovies] = useState(savedMovies);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isCheckShots, setIsCheckShorts] = useState(false);
 
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
+  const filter = useCallback((search, isCheckShots, movies) => {
+    setSearchQuery(search);
+    setSortingMovies(
+      movies.filter((movie) => {
+        const searchName = movie.nameRU
+          .toLowerCase()
+          .includes(search.toLowerCase());
+        return isCheckShots ? searchName && movie.duration <= 40 : searchName;
+      })
+    );
   }, []);
 
-  const [cardLimit, setCardLimit] = useState(3);
-  const visibleCards = cards.slice(0, cardLimit);
+  function searchMovies(search) {
+    filter(search, isCheckShots, savedMovies);
+  }
 
-  const [isChecked, setIsChecked] = useState(false);
-  const handleSwitchChange = () => {
-    setIsChecked(!isChecked);
-  };
+  useEffect(() => {
+    if (savedMovies.length === 0) {
+      setIsSuccessfully(true)
+    } else {
+      setIsSuccessfully(false)
+    }
+    filter(searchQuery, isCheckShots, savedMovies)
+  }, [savedMovies, filter, isCheckShots, searchQuery, setIsSuccessfully]);
 
-  const filteredFilms = isChecked
-    ? cards.filter((film) => film.duration < 41)
-    : cards;
+  function sortingShorts() {
+    if (isCheckShots) {
+      setIsCheckShorts(false);
+      filter(searchQuery, false, savedMovies);
+    } else {
+      setIsCheckShorts(true);
+      filter(searchQuery, true, savedMovies);
+    }
+  }
 
   return (
     <section className="saved-movies">
       <Header />
-      <SearchForm
-        isChecked={isChecked}
-        handleSwitchChange={handleSwitchChange}
-      />
-      <MoviesCardList
-        cards={cards}
-        setCardLimit={setCardLimit}
-        visibleCards={visibleCards}
-        filteredFilms={filteredFilms}
-        isChecked={isChecked}
-        name="saved-movies"
-      />
-      <MoreCards
-        cards={cards}
-        setCardLimit={setCardLimit}
-        cardLimit={cardLimit}
-      />
+      <main className="main">
+        <SearchForm
+          isCheckShots={isCheckShots}
+          searchMovies={searchMovies}
+          searchQuery={searchQuery}
+          sortingShorts={sortingShorts}
+          savedMovies={savedMovies}
+        />
+        <MoviesCardList
+          movies={sortingMovies}
+          onDelete={onDelete}
+        />
+      </main>
       <Footer />
     </section>
   );

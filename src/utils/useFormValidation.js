@@ -13,33 +13,33 @@ export default function useFormValidation() {
     const valid = event.target.validity.valid;
     const form = event.target.form;
 
-    setInputValue((startInputs) => {
-      return { ...startInputs, [name]: value };
+    setInputValue((oldInputs) => {
+      return { ...oldInputs, [name]: value };
     });
 
     setErrorMessage((message) => {
       return { ...message, [name]: validationMessage };
     });
 
-    setIsValid(form.checkValidity());
-
     setIsInputValid((isValid) => {
       return { ...isValid, [name]: valid };
     });
+
+    setIsValid(form.checkValidity());
   }
 
-  function reset(data = {}) {
+  const setValue = useCallback((name, inputValue) => {
+    setInputValue((oldInputValue) => {
+      return { ...oldInputValue, [name]: inputValue };
+    });
+  }, []);
+
+  const reset = useCallback((data = {}) => {
     setInputValue(data);
     setErrorMessage({});
     setIsValid(false);
     setIsInputValid({});
-  }
-
-  const setValue = useCallback((name, value) => {
-    setInputValue((startInputs) => {
-      return { ...startInputs, [name]: value };
-    });
-  }, []);
+  }, [])
 
   return {
     inputValue,

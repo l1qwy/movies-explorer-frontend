@@ -11,12 +11,71 @@ class MainApi {
     }
   }
 
-  saveMovie = (movie, token) => {
-    return fetch(`${this._url}/movies`, {
-      method: 'POST',
+  registration(name, email, password) {
+    return fetch(`${this._url}signup`, {
+      method: "POST",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      }),
+    }).then(this._verifyRes);
+  }
+
+  authorization(email, password) {
+    return fetch(`${this._url}signin`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    }).then(this._verifyRes);
+  }
+
+  getUserInfo(token) {
+    return fetch(`${this._url}users/me`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then(this._verifyRes);
+  }
+
+  setUserInfo(name, email, token) {
+    return fetch(`${this._url}users/me`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+      }),
+    }).then(this._verifyRes);
+  }
+
+  getMainMovies(token) {
+    return fetch(`${this._url}movies`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then(this._verifyRes);
+  }
+
+  saveMovie(movie, token) {
+    return fetch(`${this._url}movies`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({
         country: movie.country,
@@ -30,15 +89,22 @@ class MainApi {
         movieId: movie.id,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
-      })
-    }).then(response => response.json())
+      }),
+    }).then(this._verifyRes);
   }
 
-
+  deleteMovie = (movieId, token) => {
+    return fetch(`${this._url}movies/${movieId}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }).then(this._verifyRes);
+  };
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.liqwymovies.nomoredomainsrocks.ru/",
 });
 
 export default mainApi;

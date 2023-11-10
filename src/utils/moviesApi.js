@@ -11,13 +11,13 @@ class MoviesApi {
     }
   }
 
-  getServerCards() {
-    return fetch(this._url + "beatfilm-movies").then(this._verifyRes);
+  getServerMovies() {
+    return fetch(this._url).then(this._verifyRes);
   }
 }
 
 const moviesApi = new MoviesApi({
-  baseUrl: "https://api.nomoreparties.co/",
+  baseUrl: "https://api.nomoreparties.co/beatfilm-movies",
 });
 
 export default moviesApi;
